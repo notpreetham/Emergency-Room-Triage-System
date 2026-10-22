@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ER Triage System - Clinical Reports</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Chart.js CDN for graphics visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            <h2>ER-TRIAGE</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu-item">
+                <a href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+                    Dashboard
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="queue.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                    Triage Queue
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="register.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg>
+                    Register Patient
+                </a>
+            </li>
+            <li class="sidebar-menu-item active">
+                <a href="reports.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    Reports & Analytics
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <span>Clinical Control Room<br>v1.0.0</span>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content" id="report-dashboard-view">
+        
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <div class="page-title">
+                <h1>Reports & Analytics</h1>
+                <p>Comprehensive analytics of patient volumes, severity scores, and symptom trends</p>
+            </div>
+            
+            <div class="top-navbar-actions">
+                <button class="btn btn-secondary" onclick="loadReportsData()" style="display: inline-flex; align-items: center; gap: 6px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                    Regenerate Reports
+                </button>
+            </div>
+        </div>
+
+        <!-- Analytics Summary Cards -->
+        <div class="grid-kpis">
+            <div class="card-kpi kpi-blue">
+                <div class="kpi-info">
+                    <h3>Total Registered</h3>
+                    <div class="kpi-value" id="rep-total-registered">0</div>
+                </div>
+                <div class="kpi-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+            </div>
+            
+            <div class="card-kpi kpi-green">
+                <div class="kpi-info">
+                    <h3>Total Treated</h3>
+                    <div class="kpi-value" id="rep-total-treated">0</div>
+                </div>
+                <div class="kpi-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+            </div>
+
+            <div class="card-kpi kpi-blue">
+                <div class="kpi-info">
+                    <h3>Active in Queue</h3>
+                    <div class="kpi-value" id="rep-active-waiting">0</div>
+                </div>
+                <div class="kpi-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+            </div>
+
+            <div class="card-kpi kpi-blue">
+                <div class="kpi-info">
+                    <h3>Avg Severity Index</h3>
+                    <div class="kpi-value" id="rep-avg-severity">0.00</div>
+                </div>
+                <div class="kpi-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Grid Layout (2x2) -->
+        <div class="grid-reports">
+            
+            <!-- Chart 1: Patients by Triage Category -->
+            <div class="panel">
+                <div class="panel-header"><span class="panel-title">Triage Urgency Category Distribution</span></div>
+                <div class="panel-body">
+                    <div class="chart-container">
+                        <canvas id="chart-triage-category"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart 2: Top Common Symptoms -->
+            <div class="panel">
+                <div class="panel-header"><span class="panel-title">Most Common Symptoms Frequency</span></div>
+                <div class="panel-body">
+                    <div class="chart-container">
+                        <canvas id="chart-symptom-frequency"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart 3: Queue Composition -->
+            <div class="panel">
+                <div class="panel-header"><span class="panel-title">Active Queue vs. Treated Historical Load</span></div>
+                <div class="panel-body">
+                    <div class="chart-container">
+                        <canvas id="chart-queue-composition"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart 4: Severity Scores Distribution -->
+            <div class="panel">
+                <div class="panel-header"><span class="panel-title">Clinical Urgency Distribution Curve</span></div>
+                <div class="panel-body">
+                    <div class="chart-container">
+                        <canvas id="chart-severity-distribution"></canvas>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Script imports -->
+    <script src="js/api.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+</html>

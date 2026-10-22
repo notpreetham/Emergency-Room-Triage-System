@@ -1,0 +1,11 @@
+{
+  "name": "Robert Carter",
+  "age": 68,
+  "gender": "Male",
+  "symptoms": "Severe chest pain and difficulty breathing, sudden numbness",
+  "heart_rate": 130,
+  "oxygen_level": 87,
+  "temperature": 102.5,
+  "blood_pressure": "160/100",
+  "ambulance_arrival": 1
+}

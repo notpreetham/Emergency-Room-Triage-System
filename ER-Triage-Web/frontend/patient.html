@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ER Triage System - Patient Details</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            <h2>ER-TRIAGE</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu-item">
+                <a href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+                    Dashboard
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="queue.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                    Triage Queue
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="register.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg>
+                    Register Patient
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="reports.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    Reports & Analytics
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <span>Clinical Control Room<br>v1.0.0</span>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <div class="page-title">
+                <h1>Patient Profile</h1>
+                <p>View and manage patient clinical details</p>
+            </div>
+            
+            <div class="top-navbar-actions">
+                <a href="queue.html" class="btn btn-secondary">
+                    Back to Queue Board
+                </a>
+                <button class="btn btn-primary" id="btn-toggle-edit" onclick="toggleEditMode()">
+                    Edit Patient Vitals
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Profile Grid -->
+        <div class="patient-detail-card" id="profile-container">
+            <!-- Left Side: Demographics Profile Summary -->
+            <div class="patient-meta-sidebar">
+                <div class="patient-avatar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h2 id="patient-name">Loading...</h2>
+                <p id="patient-id-display">Patient ID: -</p>
+                
+                <div class="badge" id="patient-badge" style="margin-bottom: 24px;">STABLE</div>
+                
+                <div class="patient-stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-box-label">Age</div>
+                        <div class="stat-box-value" id="patient-age">-</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-label">Gender</div>
+                        <div class="stat-box-value" id="patient-gender">-</div>
+                    </div>
+                    <div class="stat-box" style="grid-column: 1 / -1;">
+                        <div class="stat-box-label">Estimated Wait Time</div>
+                        <div class="stat-box-value" id="patient-wait">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Vitals Grid OR Vitals Edit Form -->
+            <div id="vitals-container">
+                <!-- View Mode Grid -->
+                <div id="vitals-view-mode" style="display: flex; flex-direction: column; gap: 24px;">
+                    <div class="panel">
+                        <div class="panel-header"><span class="panel-title">Clinical Presentation & Symptoms</span></div>
+                        <div class="panel-body" style="font-size: 1rem; line-height: 1.5;" id="patient-symptoms">-</div>
+                    </div>
+                    
+                    <div class="panel">
+                        <div class="panel-header"><span class="panel-title">Clinical Vitals</span></div>
+                        <div class="panel-body">
+                            <div class="form-grid">
+                                <div class="stat-box">
+                                    <div class="stat-box-label">Oxygen Saturation (SpO2)</div>
+                                    <div class="stat-box-value" id="patient-o2">-</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-box-label">Heart Rate</div>
+                                    <div class="stat-box-value" id="patient-hr">-</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-box-label">Temperature</div>
+                                    <div class="stat-box-value" id="patient-temp">-</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-box-label">Blood Pressure</div>
+                                    <div class="stat-box-value" id="patient-bp">-</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-box-label">Arrival Method</div>
+                                    <div class="stat-box-value" id="patient-transport">-</div>
+                                </div>
+                                <div class="stat-box">
+                                    <div class="stat-box-label">Severity Score</div>
+                                    <div class="stat-box-value" id="patient-score">-</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Mode Form -->
+                <div id="vitals-edit-mode" style="display: none;">
+                    <form id="edit-vitals-form" onsubmit="handleEditSubmit(event)">
+                        <div class="panel">
+                            <div class="panel-header"><span class="panel-title">Update Clinical Information</span></div>
+                            <div class="panel-body">
+                                <div class="form-grid">
+                                    
+                                    <!-- Symptoms -->
+                                    <div class="form-group form-group-full">
+                                        <label for="edit-symptoms">Symptoms & Presentation</label>
+                                        <textarea id="edit-symptoms" rows="3" required></textarea>
+                                    </div>
+                                    
+                                    <!-- Heart Rate -->
+                                    <div class="form-group">
+                                        <label for="edit-hr">Heart Rate (bpm)</label>
+                                        <input type="number" id="edit-hr" min="0" required>
+                                    </div>
+                                    
+                                    <!-- Oxygen Level -->
+                                    <div class="form-group">
+                                        <label for="edit-o2">Oxygen Level (SpO2 %)</label>
+                                        <input type="number" id="edit-o2" min="0" max="100" required>
+                                    </div>
+                                    
+                                    <!-- Temperature -->
+                                    <div class="form-group">
+                                        <label for="edit-temp">Temperature (°F)</label>
+                                        <input type="number" id="edit-temp" step="0.1" min="50" max="115" required>
+                                    </div>
+                                    
+                                    <!-- Blood Pressure -->
+                                    <div class="form-group">
+                                        <label for="edit-bp">Blood Pressure (mmHg)</label>
+                                        <input type="text" id="edit-bp" required>
+                                    </div>
+
+                                    <div class="form-group form-group-full" style="display: flex; gap: 12px; margin-top: 16px;">
+                                        <button type="submit" class="btn btn-primary" style="flex-grow: 1; justify-content: center;">Save Changes</button>
+                                        <button type="button" class="btn btn-secondary" onclick="cancelEdit()">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script imports -->
+    <script src="js/api.js"></script>
+    <script>
+        let patientId = null;
+        let patientData = null;
+        let isEditMode = false;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            patientId = urlParams.get('id');
+            const startEdit = urlParams.get('edit') === 'true';
+            
+            if (!patientId) {
+                document.getElementById('profile-container').innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: var(--critical); padding: 50px;">Error: No Patient ID provided in URL parameters.</div>';
+                return;
+            }
+            
+            loadPatientProfile(startEdit);
+        });
+
+        async function loadPatientProfile(startEdit = false) {
+            try {
+                const result = await window.API.getPatient(patientId);
+                if (result.status === 'success' && result.results && result.results.length > 0) {
+                    patientData = result.results[0]; // search returns an array of matches
+                    displayPatientData(patientData);
+                    
+                    if (startEdit) {
+                        toggleEditMode(true);
+                    }
+                } else {
+                    document.getElementById('profile-container').innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--critical); padding: 50px;">Error: Patient ID '${patientId}' was not found in database records.</div>`;
+                }
+            } catch (error) {
+                console.error('Error loading patient profile:', error);
+                window.showToast('Failed to connect to triage database', 'error');
+            }
+        }
+
+        function displayPatientData(p) {
+            // Demographics sidebar
+            document.getElementById('patient-name').textContent = p.name;
+            document.getElementById('patient-id-display').textContent = `Patient ID: ${p.id}`;
+            document.getElementById('patient-age').textContent = p.age;
+            document.getElementById('patient-gender').textContent = p.gender;
+            
+            const waitDisplay = document.getElementById('patient-wait');
+            if (p.status === 'treated') {
+                waitDisplay.textContent = 'Treated (Complete)';
+                waitDisplay.style.color = 'var(--stable)';
+            } else {
+                waitDisplay.textContent = p.triage_level === 'CRITICAL' ? 'Immediate Attention' : `${p.estimated_wait_time} minutes`;
+                waitDisplay.style.color = '';
+            }
+
+            // Triage Badge
+            const badge = document.getElementById('patient-badge');
+            badge.textContent = p.triage_level;
+            badge.className = 'badge'; // reset
+            if (p.triage_level === 'CRITICAL') badge.classList.add('badge-critical');
+            else if (p.triage_level === 'SERIOUS') badge.classList.add('badge-serious');
+            else if (p.triage_level === 'MODERATE') badge.classList.add('badge-moderate');
+            else badge.classList.add('badge-stable');
+
+            // Symptoms
+            document.getElementById('patient-symptoms').textContent = p.symptoms;
+
+            // Vitals
+            document.getElementById('patient-o2').textContent = `${p.oxygen_level}%`;
+            document.getElementById('patient-hr').textContent = `${p.heart_rate} bpm`;
+            document.getElementById('patient-temp').textContent = `${p.temperature} °F`;
+            document.getElementById('patient-bp').textContent = p.blood_pressure;
+            document.getElementById('patient-transport').textContent = p.ambulance_arrival === 1 ? 'Ambulance / Emergency' : 'Walk-In / Self-Arrival';
+            document.getElementById('patient-score').textContent = p.severity_score;
+
+            // Populate form defaults
+            document.getElementById('edit-symptoms').value = p.symptoms;
+            document.getElementById('edit-hr').value = p.heart_rate;
+            document.getElementById('edit-o2').value = p.oxygen_level;
+            document.getElementById('edit-temp').value = p.temperature;
+            document.getElementById('edit-bp').value = p.blood_pressure;
+        }
+
+        function toggleEditMode(forceState) {
+            isEditMode = forceState !== undefined ? forceState : !isEditMode;
+            
+            const viewModeEl = document.getElementById('vitals-view-mode');
+            const editModeEl = document.getElementById('vitals-edit-mode');
+            const toggleBtn = document.getElementById('btn-toggle-edit');
+            
+            if (isEditMode) {
+                viewModeEl.style.display = 'none';
+                editModeEl.style.display = 'block';
+                toggleBtn.textContent = 'View Details';
+                toggleBtn.className = 'btn btn-secondary';
+            } else {
+                viewModeEl.style.display = 'flex';
+                editModeEl.style.display = 'none';
+                toggleBtn.textContent = 'Edit Patient Vitals';
+                toggleBtn.className = 'btn btn-primary';
+            }
+        }
+
+        function cancelEdit() {
+            toggleEditMode(false);
+            // Reset form fields to loaded data
+            if (patientData) {
+                displayPatientData(patientData);
+            }
+        }
+
+        async function handleEditSubmit(e) {
+            e.preventDefault();
+            
+            const updatePayload = {
+                symptoms: document.getElementById('edit-symptoms').value.trim(),
+                heart_rate: parseInt(document.getElementById('edit-hr').value),
+                oxygen_level: parseInt(document.getElementById('edit-o2').value),
+                temperature: parseFloat(document.getElementById('edit-temp').value),
+                blood_pressure: document.getElementById('edit-bp').value.trim()
+            };
+            
+            try {
+                const result = await window.API.updatePatient(patientId, updatePayload);
+                if (result.status === 'success') {
+                    window.showToast('Vitals updated successfully and severity recalculated!', 'success');
+                    patientData = result.patient;
+                    displayPatientData(patientData);
+                    toggleEditMode(false);
+                } else {
+                    window.showToast(result.message || 'Failed to update patient records', 'error');
+                }
+            } catch (error) {
+                console.error('Error saving edits:', error);
+                window.showToast('Error communicating with database server', 'error');
+            }
+        }
+    </script>
+</body>
+</html>

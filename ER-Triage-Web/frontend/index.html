@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ER Triage System - Clinical Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+            <h2>ER-TRIAGE</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu-item active">
+                <a href="index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+                    Dashboard
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="queue.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                    Triage Queue
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="register.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="16" y1="11" x2="22" y2="11"/></svg>
+                    Register Patient
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a href="reports.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    Reports & Analytics
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <span>Clinical Control Room<br>v1.0.0</span>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        
+        <!-- Top Navbar -->
+        <div class="top-navbar">
+            <div class="page-title">
+                <h1>Clinical Dashboard</h1>
+                <p>Real-time Emergency Department Triage overview</p>
+            </div>
+            
+            <div class="top-navbar-actions">
+                <div class="search-box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" placeholder="Search patient ID or name..." onkeydown="if(event.key==='Enter') window.location.href=`queue.html?q=${this.value}`">
+                </div>
+                <button class="btn btn-secondary" id="btn-backup" title="Trigger Database Sync & Backup">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    Sync Backup
+                </button>
+                <button class="btn btn-primary" id="btn-treat-next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                    Treat Next
+                </button>
+            </div>
+        </div>
+
+        <!-- Real-Time Triage Alert Ticker -->
+        <div id="alert-ticker-container">
+            <!-- Populated via Javascript -->
+        </div>
+
+        <!-- Main KPI Stats Cards -->
+        <div class="grid-kpis">
+            <div class="card-kpi kpi-blue">
+                <div class="kpi-info">
+                    <h3>Active Waiting</h3>
+                    <div class="kpi-value" id="kpi-queue">-</div>
+                </div>
+                <div class="kpi-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+            </div>
+            
+            <div class="card-kpi kpi-green">
+                <div class="kpi-info">
+                    <h3>Patients Treated</h3>
+                    <div class="kpi-value" id="kpi-treated">-</div>
+                </div>
+                <div class="kpi-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+            </div>
+
+            <div class="card-kpi kpi-blue">
+                <div class="kpi-info">
+                    <h3>Total Registered</h3>
+                    <div class="kpi-value" id="kpi-total">-</div>
+                </div>
+                <div class="kpi-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+            </div>
+
+            <div class="card-kpi kpi-blue">
+                <div class="kpi-info">
+                    <h3>Avg Severity Score</h3>
+                    <div class="kpi-value" id="kpi-severity">-</div>
+                </div>
+                <div class="kpi-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Triage Level Breakdown Counters -->
+        <div class="grid-kpis">
+            <div class="card-kpi kpi-red">
+                <div class="kpi-info">
+                    <h3>Critical Patients</h3>
+                    <div class="kpi-value" id="kpi-critical">-</div>
+                </div>
+                <div class="kpi-icon" style="border-color: rgba(239,68,68,0.2);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                </div>
+            </div>
+            
+            <div class="card-kpi kpi-orange">
+                <div class="kpi-info">
+                    <h3>Serious Patients</h3>
+                    <div class="kpi-value" id="kpi-serious">-</div>
+                </div>
+                <div class="kpi-icon" style="border-color: rgba(249,115,22,0.2);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/></svg>
+                </div>
+            </div>
+
+            <div class="card-kpi kpi-yellow">
+                <div class="kpi-info">
+                    <h3>Moderate Patients</h3>
+                    <div class="kpi-value" id="kpi-moderate">-</div>
+                </div>
+                <div class="kpi-icon" style="border-color: rgba(234,179,8,0.2);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+            </div>
+
+            <div class="card-kpi kpi-green">
+                <div class="kpi-info">
+                    <h3>Stable Patients</h3>
+                    <div class="kpi-value" id="kpi-stable">-</div>
+                </div>
+                <div class="kpi-icon" style="border-color: rgba(16,185,129,0.2);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Split Content -->
+        <div class="grid-main">
+            <!-- Left Side: Highest Priority Waiting Queue -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">Highest Priority Waiting Patients</span>
+                    <a href="queue.html" class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem;">View Full Queue</a>
+                </div>
+                <div class="panel-body" id="priority-list-body" style="padding: 0;">
+                    <!-- Populated via Javascript -->
+                    <div style="padding: 24px; text-align: center;"><div class="spinner"></div></div>
+                </div>
+            </div>
+
+            <!-- Right Side: Clinical Triage Guide & Rules -->
+            <div class="panel">
+                <div class="panel-header">
+                    <span class="panel-title">Triage Reference Guide</span>
+                </div>
+                <div class="panel-body" style="font-size: 0.85rem; display: flex; flex-direction: column; gap: 16px;">
+                    <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 16px;">
+                        <h4 style="margin-bottom: 6px; color: var(--primary);">Severity Classifications:</h4>
+                        <ul style="list-style-position: inside; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px;">
+                            <li><strong style="color: var(--critical)">CRITICAL (80+):</strong> Immediate resuscitation</li>
+                            <li><strong style="color: var(--serious)">SERIOUS (50-79):</strong> High priority; urgent</li>
+                            <li><strong style="color: var(--moderate)">MODERATE (20-49):</strong> Moderate priority</li>
+                            <li><strong style="color: var(--stable)">STABLE (&lt;20):</strong> Non-urgent care</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: var(--border-radius-md); padding: 16px;">
+                        <h4 style="margin-bottom: 6px; color: var(--primary);">Clinical Rule Triggers:</h4>
+                        <ul style="list-style-position: inside; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px;">
+                            <li>Oxygen &lt; 90% <span style="color: var(--critical); font-weight:bold;">(+50)</span></li>
+                            <li>Heart Rate &gt; 120 bpm <span style="color: var(--serious); font-weight:bold;">(+30)</span></li>
+                            <li>Stroke / Unconscious <span style="color: var(--critical); font-weight:bold;">(+50)</span></li>
+                            <li>Heavy Bleeding <span style="color: var(--serious); font-weight:bold;">(+40)</span></li>
+                            <li>Difficulty Breathing <span style="color: var(--serious); font-weight:bold;">(+30)</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script imports -->
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

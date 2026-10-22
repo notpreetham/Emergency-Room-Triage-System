@@ -1,0 +1,21 @@
+# Build outputs
+ER-Triage-Backend/build/
+*.exe
+*.o
+
+# Node dependencies
+ER-Triage-Web/server/node_modules/
+ER-Triage-Web/server/package-lock.json
+
+# Temporary files
+ER-Triage-Backend/data/temp_*.json
+ER-Triage-Web/server/data/temp_*.json
+scratch/
+
+# PBL Reports
+PBL_Final_Report.md
+PBL_Final_Report.pdf
+
+# OS files
+.DS_Store
+Thumbs.db

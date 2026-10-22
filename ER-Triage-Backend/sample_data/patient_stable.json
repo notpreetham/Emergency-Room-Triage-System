@@ -1,0 +1,11 @@
+{
+  "name": "Emily Watson",
+  "age": 28,
+  "gender": "Female",
+  "symptoms": "Mild cough and seasonal allergies, sore throat",
+  "heart_rate": 78,
+  "oxygen_level": 99,
+  "temperature": 98.4,
+  "blood_pressure": "115/75",
+  "ambulance_arrival": 0
+}

@@ -1,0 +1,50 @@
+P103|Noah Williams|18|Male|Unconscious, fainted at home|130|88|101.50|90/60|1783871619|2026-07-12 21:23:39|1|150|CRITICAL|0|waiting
+P123|Henry Lewis|83|Male|Severe difficulty breathing, gasping for air|128|83|99.00|150/90|1783895619|2026-07-13 04:03:39|1|140|CRITICAL|0|waiting
+P104|Emma Brown|27|Female|Severe difficulty breathing, gasping for air|128|83|99.00|150/90|1783872819|2026-07-12 21:43:39|1|130|CRITICAL|0|waiting
+P101|Liam Smith|65|Male|Sudden weakness, facial droop, and slurred speech|85|96|98.60|160/100|1783869219|2026-07-12 20:43:39|1|80|CRITICAL|0|waiting
+P120|Abigail Sanchez|16|Female|Sudden weakness, facial droop, and slurred speech|85|96|98.60|160/100|1783892019|2026-07-13 03:03:39|1|70|SERIOUS|55|waiting
+P106|Sophia Miller|39|Female|Difficulty breathing and productive cough, pneumonia|102|91|102.40|128/80|1783875219|2026-07-12 22:23:39|1|65|SERIOUS|65|waiting
+P125|Jackson Walker|39|Male|Difficulty breathing and productive cough, pneumonia|102|91|102.40|128/80|1783898019|2026-07-13 04:43:39|1|65|SERIOUS|75|waiting
+P105|Oliver Jones|46|Male|Heavy bleeding from deep laceration on thigh|98|97|98.40|110/70|1783874019|2026-07-12 22:03:39|1|60|SERIOUS|85|waiting
+P124|Ella Robinson|37|Female|Heavy bleeding from deep laceration on thigh|98|97|98.40|110/70|1783896819|2026-07-13 04:23:39|1|60|SERIOUS|95|waiting
+P102|Olivia Johnson|52|Female|Severe chest pain radiating to left arm|115|92|99.00|150/95|1783870419|2026-07-12 21:03:39|1|45|MODERATE|195|waiting
+P109|James Anderson|69|Male|High fever and confusion, suspected infection|105|91|103.20|95/55|1783878819|2026-07-12 23:23:39|1|45|MODERATE|210|waiting
+P121|Daniel Clark|42|Male|Severe chest pain radiating to left arm|115|92|99.00|150/95|1783893219|2026-07-13 03:23:39|1|45|MODERATE|225|waiting
+P128|Scarlett King|21|Female|High fever and confusion, suspected infection|105|91|103.20|95/55|1783901619|2026-07-13 05:43:39|1|35|MODERATE|240|waiting
+P111|Benjamin Thomas|50|Male|Panic attack, hyperventilating, rapid heart rate|132|98|98.40|135/85|1783881219|2026-07-13 00:03:39|0|30|MODERATE|255|waiting
+P130|Victoria Scott|44|Female|Panic attack, hyperventilating, rapid heart rate|132|98|98.40|135/85|1783904019|2026-07-13 06:23:39|0|30|MODERATE|270|waiting
+P107|Elijah Davis|58|Male|Severe chest pain and dizziness|110|93|98.20|145/88|1783876419|2026-07-12 22:43:39|0|25|MODERATE|285|waiting
+P126|Avery Young|27|Female|Severe chest pain and dizziness|110|93|98.20|145/88|1783899219|2026-07-13 05:03:39|0|25|MODERATE|300|waiting
+P127|Sebastian Allen|81|Male|Fever, chills, and productive cough|96|95|102.60|130/78|1783900419|2026-07-13 05:23:39|0|25|MODERATE|315|waiting
+P108|Isabella Wilson|30|Female|Fever, chills, and productive cough|96|95|102.60|130/78|1783877619|2026-07-12 23:03:39|0|15|STABLE|480|waiting
+P110|Charlotte Taylor|81|Female|Severe abdominal pain, nausea and vomiting|92|98|100.20|130/80|1783880019|2026-07-12 23:43:39|0|10|STABLE|500|waiting
+P114|Mia Martin|62|Female|Fractured radius from playground fall|100|99|98.80|105/65|1783884819|2026-07-13 01:03:39|0|10|STABLE|520|waiting
+P115|Mason Lee|81|Male|Sprained ankle, minor swelling|68|100|98.60|118/70|1783886019|2026-07-13 01:23:39|0|10|STABLE|540|waiting
+P116|Evelyn Perez|70|Female|Superficial burn on hand from cooking|76|99|98.60|114/72|1783887219|2026-07-13 01:43:39|0|10|STABLE|560|waiting
+P118|Harper White|72|Female|Sore throat and difficulty swallowing|80|98|101.80|112/70|1783889619|2026-07-13 02:23:39|0|10|STABLE|580|waiting
+P119|Alexander Harris|84|Male|Migraine with aura|82|99|98.50|122/80|1783890819|2026-07-13 02:43:39|0|10|STABLE|600|waiting
+P112|Amelia Moore|33|Female|Severe nosebleed for 2 hours, bleeding heavily|88|96|98.70|150/95|1783882419|2026-07-13 00:23:39|0|0|STABLE|620|waiting
+P113|Lucas Jackson|28|Male|Mild cough and seasonal allergies, sore throat|78|99|98.40|115/75|1783883619|2026-07-13 00:43:39|0|0|STABLE|640|waiting
+P117|Ethan Thompson|52|Male|Food poisoning, mild nausea|85|98|98.90|110/70|1783888419|2026-07-13 02:03:39|0|0|STABLE|660|waiting
+P129|David Wright|16|Male|Severe abdominal pain, nausea and vomiting|92|98|100.20|130/80|1783902819|2026-07-13 06:03:39|0|0|STABLE|680|waiting
+P131|Carter Torres|45|Male|Severe nosebleed for 2 hours, bleeding heavily|88|96|98.70|150/95|1783905219|2026-07-13 06:43:39|0|0|STABLE|700|waiting
+P132|Grace Nguyen|54|Female|Mild cough and seasonal allergies, sore throat|78|99|98.40|115/75|1783906419|2026-07-13 07:03:39|0|0|STABLE|720|waiting
+P133|Wyatt Hill|20|Male|Fractured radius from playground fall|100|99|98.80|105/65|1783907619|2026-07-13 07:23:39|0|0|STABLE|740|waiting
+P134|Chloe Flores|21|Female|Sprained ankle, minor swelling|68|100|98.60|118/70|1783908819|2026-07-13 07:43:39|0|0|STABLE|760|waiting
+P135|John Green|20|Male|Superficial burn on hand from cooking|76|99|98.60|114/72|1783910019|2026-07-13 08:03:39|0|0|STABLE|780|waiting
+P150|Mateo Parker|35|Female|Severe nosebleed for 2 hours, bleeding heavily|88|96|98.70|150/95|1783928019|2026-07-13 13:03:39|0|0|STABLE|0|treated
+P149|Sadie Diaz|81|Male|Panic attack, hyperventilating, rapid heart rate|132|98|98.40|135/85|1783926819|2026-07-13 12:43:39|0|40|MODERATE|0|treated
+P148|Ezra Turner|30|Female|Severe abdominal pain, nausea and vomiting|92|98|100.20|130/80|1783925619|2026-07-13 12:23:39|0|0|STABLE|0|treated
+P147|Dylan Evans|77|Male|High fever and confusion, suspected infection|105|91|103.20|95/55|1783924419|2026-07-13 12:03:39|1|45|MODERATE|0|treated
+P146|Elizabeth Phillips|79|Female|Fever, chills, and productive cough|96|95|102.60|130/78|1783923219|2026-07-13 11:43:39|0|25|MODERATE|0|treated
+P145|Hudson Gomez|33|Male|Severe chest pain and dizziness|110|93|98.20|145/88|1783922019|2026-07-13 11:23:39|0|25|MODERATE|0|treated
+P144|Natalie Roberts|51|Female|Difficulty breathing and productive cough, pneumonia|102|91|102.40|128/80|1783920819|2026-07-13 11:03:39|1|65|SERIOUS|0|treated
+P143|Lincoln Carter|49|Male|Heavy bleeding from deep laceration on thigh|98|97|98.40|110/70|1783919619|2026-07-13 10:43:39|1|60|SERIOUS|0|treated
+P142|Stella Mitchell|33|Female|Severe difficulty breathing, gasping for air|128|83|99.00|150/90|1783918419|2026-07-13 10:23:39|1|130|CRITICAL|0|treated
+P141|Anthony Campbell|30|Male|Unconscious, fainted at home|130|88|101.50|90/60|1783917219|2026-07-13 10:03:39|1|150|CRITICAL|0|treated
+P140|Aubrey Rivera|79|Female|Severe chest pain radiating to left arm|115|92|99.00|150/95|1783916019|2026-07-13 09:43:39|1|55|SERIOUS|0|treated
+P139|Gabriel Hall|70|Male|Sudden weakness, facial droop, and slurred speech|85|96|98.60|160/100|1783914819|2026-07-13 09:23:39|1|80|CRITICAL|0|treated
+P138|Zoey Baker|82|Female|Migraine with aura|82|99|98.50|122/80|1783913619|2026-07-13 09:03:39|0|10|STABLE|0|treated
+P137|Luke Nelson|25|Male|Sore throat and difficulty swallowing|80|98|101.80|112/70|1783912419|2026-07-13 08:43:39|0|0|STABLE|0|treated
+P136|Lily Adams|60|Female|Food poisoning, mild nausea|85|98|98.90|110/70|1783911219|2026-07-13 08:23:39|0|0|STABLE|0|treated
+P122|Elizabeth Ramirez|72|Female|Unconscious, fainted at home|130|88|101.50|90/60|1783894419|2026-07-13 03:43:39|1|160|CRITICAL|0|treated
